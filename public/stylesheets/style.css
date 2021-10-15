@@ -1,17 +1,28 @@
 * {
   box-sizing: border-box;
+  font-family: 'Asap', sans-serif;
+}
+
+body, body > nav, .login,
+#landing, #landing > section,
+#rstrnts-index, #login-options {
+  display: flex;
 }
 
 body {
   height: 100vh;
   margin: 0;
+  flex-direction: column;
   background-color: #fdfdfd;
 }
 
-nav {
+body > nav {
   height: 8vh;
   max-height: 60px;
+  justify-content: space-between;
+  align-items: center;
   background-color: #602f6b;
+  padding: 0 20px;
 }
 
 nav > a {
@@ -19,12 +30,62 @@ nav > a {
 }
 
 .login {
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 34px;
 }
 
 .login img {
   height: 30px;
+  border-radius: 50%;
+}
+
+#landing {
+  margin: 15%;
+  height: 50%;
+}
+
+#landing > section {
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#landing-descrip {
+  border-left: solid 5px #602f6b;
+  padding-left: 10px;
+}
+
+#login-options {
+  flex-direction: center;
+  align-items: center;
+}
+
+#login-options > h2 {
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+
+#login-options > a {
+  padding: 6px;
+  margin: 5px;
+  width: 70%;
+  height: 8%;
+  color: #602f6b;
+  background-color: lightpink;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+#login-options > a:hover {
+  background-color: rgb(200, 100, 115);
+}
+
+#rstrnts-index {
+  flex-direction: column;
+  margin: 5% 10%;
+}
+
+#rstrnts-index > h2 {
+  text-align: center;
 }

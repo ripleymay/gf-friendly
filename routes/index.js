@@ -3,8 +3,8 @@ var router = express.Router();
 const passport = require('passport');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function(req, res) {
+  res.render('landing');
 });
 
 // Google OAuth login route
@@ -17,7 +17,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/',
+    successRedirect : '/rstrnts',
     failureRedirect : '/'
   }
 ));
