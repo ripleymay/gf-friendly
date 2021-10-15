@@ -1,8 +1,30 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: #fdfdfd;
+}
+
+nav {
+  height: 8vh;
+  max-height: 60px;
+  background-color: #602f6b;
+}
+
+nav > a {
+  color: white;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
 }
