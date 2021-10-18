@@ -3,12 +3,10 @@
 <main id="rstrnts-index">
     <h2>Restaurants!</h2>
     <section id="rstrnts">
-        <div id="add-restrnt">
-            <a href="/rstrnts/new">+ Add a new restaurant</a>
-        </div>
+        <a href="/rstrnts/new"><div>+ Add a new restaurant</div></a>
         <% rstrnts.forEach(function(r) { %>
-            <div><%= r.name %></div>
-        <% }); %>
+            <a href="/rstrnts/<%= r._id %>"><div><%= r.name %></div></a>
+            <% }); %>
     </section>
 </main>
 

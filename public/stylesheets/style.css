@@ -95,13 +95,22 @@ nav > a {
   flex-wrap: wrap;
 }
 
-#rstrnts > div {
-  background-color: lightgrey;
-  border-radius: 10px;
-  width: 30%;
+#rstrnts > * {
   margin: 8px;
+  color: black;
 }
 
-#add-restrnt:hover {
+#rstrnts div {
+  background-color: lightgrey;
+  border-radius: 10px;
+  min-width: 175px;
+  text-align: center;
+}
+
+#rstrnts div:hover {
   background-color: lightpink;
+}
+
+#rstrnts > a:hover {
+  text-decoration: none;
 }
