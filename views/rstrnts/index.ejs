@@ -6,6 +6,9 @@
         <div id="add-restrnt">
             <a href="/rstrnts/new">+ Add a new restaurant</a>
         </div>
+        <% rstrnts.forEach(function(r) { %>
+            <div><%= r.name %></div>
+        <% }); %>
     </section>
 </main>
 

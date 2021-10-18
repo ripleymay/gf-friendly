@@ -98,7 +98,8 @@ nav > a {
 #rstrnts > div {
   background-color: lightgrey;
   border-radius: 10px;
-  max-width: 30%;
+  width: 30%;
+  margin: 8px;
 }
 
 #add-restrnt:hover {

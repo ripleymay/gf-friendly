@@ -1,13 +1,10 @@
 var express = require('express');
 var router = express.Router();
+const rstrntsCtrl = require('../controllers/rstrnts');
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.render('rstrnts/index');
-});
-
-router.get('/new', function(req, res) {
-  res.render('rstrnts/new')
-});
+router.get('/', rstrntsCtrl.index);
+router.get('/new', rstrntsCtrl.new);
+router.post('/', rstrntsCtrl.create);
 
 module.exports = router;

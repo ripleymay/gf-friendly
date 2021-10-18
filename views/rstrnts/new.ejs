@@ -1,5 +1,20 @@
 <%- include('../partials/header') %>
-<main>
-    <h2>Add a new GF spot...</h2>
-</main>
+<h2>Add a new GF spot...</h2>
+
+<form id="add-rstrnt" action="/rstrnts" method="POST">
+    <label>Name:
+        <input type="text" name="name">
+    </label>
+    <label>Address:
+        <input type="text" name="address">
+    </label>
+    <label>URL:
+        <input type="text" name="url">
+    </label>
+    <label>Phone:
+        <input type="text" name="phone">
+    </label>
+    <input type="submit" value="Add Restaurant">
+</form>
+
 <%- include('../partials/footer') %>
