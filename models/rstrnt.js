@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     content: String,
-    satisfied: Boolean,
+    satisfaction: Number,
     creator: Schema.Types.ObjectId
 });
 
-const menuItemSchema = new Schema({
+const menuSchema = new Schema({
     name: String,
     price: Number,
     creator: Schema.Types.ObjectId
@@ -20,7 +20,7 @@ const rstrntSchema = new Schema({
     phone: String,
     creator: Schema.Types.ObjectId,
     comments: [commentSchema],
-    menuItems: [menuItemSchema]
+    menus: [menuSchema]
 }, {
     timestamps: true
 });
