@@ -5,7 +5,8 @@
 
 body, body > nav, .login,
 #landing, #landing > section,
-#rstrnts-index, #login-options {
+#rstrnts-index, #login-options,
+#rstrnts {
   display: flex;
 }
 
@@ -88,4 +89,18 @@ nav > a {
 
 #rstrnts-index > h2 {
   text-align: center;
+}
+
+#rstrnts {
+  flex-wrap: wrap;
+}
+
+#rstrnts > div {
+  background-color: lightgrey;
+  border-radius: 10px;
+  max-width: 30%;
+}
+
+#add-restrnt:hover {
+  background-color: lightpink;
 }
