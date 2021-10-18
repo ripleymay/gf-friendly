@@ -23,24 +23,12 @@
     <section id="comments">
         <% rstrnt.comments.forEach(function(c) { %>
             <div>
-                <h3><%= c.creator %> says...</h3>
+                <h3><%= user.name %> says...</h3>
                 <%= c.satisfaction %> | <%= c.content %>
             </div>
         <% }); %>
-        <form id="add-comment" action="/rstrnts/<%= rstrnt._id %>/comments" method="POST">
-            <label>Satisfied?
-                <select name="satisfaction">
-                    <option disabled selected value></option>
-                    <option value=1>Bad!</option>
-                    <option value=2>Alright</option>
-                    <option value=3>Great!</option>
-                </select>            
-            </label>
-            <label>Comment:
-                <input type="text" name="content">
-            </label>
-            <input type="submit" value="Add Comment">
-        </form>
+
+        <a id="new-comment" href="/rstrnts/<%= rstrnt.id %>/comments/new">Add Comment</a>
     </section>
 </main>
 <%- include('../partials/footer') %>
