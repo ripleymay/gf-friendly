@@ -6,7 +6,7 @@
 body, body > nav, .login,
 #landing, #landing > section,
 #rstrnts-index, #login-options,
-#rstrnts {
+#rstrnts, #rstrnt-details {
   display: flex;
 }
 
@@ -52,9 +52,9 @@ nav > a {
   text-align: center;
 }
 
-#landing-descrip {
+#landing-descrip, #comments {
   border-left: solid 5px #602f6b;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 #login-options {
@@ -113,4 +113,38 @@ nav > a {
 
 #rstrnts > a:hover {
   text-decoration: none;
+}
+
+#rstrnt-info > * {
+  text-align: center;
+}
+
+#rstrnt-info span {
+  font-weight: bold;
+}
+
+#rstrnt-info {
+  margin: 5% 10%;
+}
+
+#rstrnt-details {
+  margin: 0% 10%;
+}
+
+#menu-items {
+  width: 30%;
+  padding-right: 20px;
+}
+
+#menu-items >  div {
+  border-radius: 10px;
+  padding: 6px;
+  margin: 4px;
+  background-color: lightpink;
+  width: fit-content;
+  display: inline-block;
+}
+
+#add-menu {
+  margin-top: 20px;
 }

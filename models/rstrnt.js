@@ -9,7 +9,7 @@ const commentSchema = new Schema({
 
 const menuSchema = new Schema({
     name: String,
-    price: Number,
+    price: String,
     creator: Schema.Types.ObjectId
 });
 
