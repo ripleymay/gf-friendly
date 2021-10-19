@@ -22,6 +22,11 @@
         <p>Safe menu items</p>
         <% rstrnt.menus.forEach(function(m) { %>
             <div>$<%= m.price %> | <%= m.name %>
+                <% if (user?._id.equals(m.creator)) { %>
+                    <form action="/rstrnts/<%= rstrnt._id %>/menus/<%= m._id %>?_method=DELETE" method="POST">
+                        <button type="submit">X</button>
+                    </form>
+                <% }; %>
             </div>
             <% }); %>
                 <form id="add-menu" action="/rstrnts/<%= rstrnt._id %>/menus" method="POST">
