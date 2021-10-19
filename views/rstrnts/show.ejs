@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <header id="rstrnt-info">
     <h2><%= rstrnt.name %></h2>
-    <p><span>Link:</span> <a href="<%= rstrnt.link %>"></a>&nbsp;|
+    <p><span>Link:</span> <a href="<%= rstrnt.link %>">click here</a>&nbsp;|
         <span>Address:</span>
         <%= rstrnt.address %>&nbsp;|
         <span>Phone:</span>
@@ -23,7 +23,7 @@
         <% rstrnt.menus.forEach(function(m) { %>
             <div>$<%= m.price %> | <%= m.name %>
                 <% if (user?._id.equals(m.creator)) { %>
-                    <form action="/rstrnts/<%= rstrnt._id %>/menus/<%= m._id %>?_method=DELETE" method="POST">
+                    <form action="/menus/<%= m._id %>?_method=DELETE" method="POST">
                         <button type="submit">X</button>
                     </form>
                 <% }; %>
@@ -43,6 +43,14 @@
             <div>
                 <h3><%= c.creator %> says...</h3>
                 <%= c.satisfaction %> | <%= c.content %>
+                <% if (user?._id.equals(c.creator)) { %>
+                    <form action="/comments/<%= c._id %>/edit" method="GET">
+                        <button type="submit">Edit this comment?</button>
+                    </form>
+                    <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete this comment?</button>
+                    </form>
+                    <% } %>
             </div>
         <% }); %>
 

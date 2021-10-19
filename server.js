@@ -40,10 +40,12 @@ app.use(function (req, res, next) {
   next();
 });
 
+const isLoggedIn = require('./config/auth');
+
 app.use('/', indexRouter);
 app.use('/rstrnts', rstrntsRouter);
-app.use('/', menusRouter);
-app.use('/', commentsRouter);
+app.use('/', isLoggedIn, menusRouter);
+app.use('/', isLoggedIn, commentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

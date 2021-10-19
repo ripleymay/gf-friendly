@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<h2>Edit comment for <%= rstrnt.name %><h2>
+<form id="add-comment" action="/comments/<%= comment._id %>?_method=PUT" method="POST">
+    <label>Satisfied?
+        <select name="satisfaction">
+            <option value=1 <%- comment.satisfaction === 1 ? 'selected' : '' %>>Bad!</option>
+            <option value=2 <%- comment.satisfaction === 2 ? 'selected' : '' %>>Alright</option>
+            <option value=3 <%- comment.satisfaction === 3 ? 'selected' : '' %>>Great!</option>
+        </select>            
+    </label>
+    <label>Comment:
+        <input type="text" name="content" value="<%= comment.content %>">
+    </label>
+    <input type="submit" value="Update Comment">
+</form>
+
+<%- include('../partials/footer') %>

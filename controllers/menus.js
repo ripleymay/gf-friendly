@@ -16,8 +16,8 @@ function create(req, res) {
 }
 
 async function deleteMenu(req, res) {
-    const rstrnt = await Rstrnt.findById(req.params.rstrntId);
-    const menu = rstrnt.menus.id(req.params.menuId);
+    const rstrnt = await Rstrnt.findOne({'menus._id': req.params.id});
+    const menu = rstrnt.menus.id(req.params.id);
     if (!menu.creator.equals(req.user._id)) return res.redirect(`/rstrnts/${rstrnt._id}`);
     menu.remove();
     await rstrnt.save();
