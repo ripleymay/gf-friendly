@@ -16,7 +16,7 @@ const menuSchema = new Schema({
 const rstrntSchema = new Schema({
     name: String,
     address: String,
-    url: String,
+    link: String,
     phone: String,
     creator: Schema.Types.ObjectId,
     comments: [commentSchema],

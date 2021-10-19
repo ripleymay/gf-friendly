@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<h2>Make changes to <%= rstrnt.name %>?</h2>
+
+<form id="edit-rstrnt" action="/rstrnts/<%= rstrnt._id %>?_method=PUT" method="POST">
+    <label>Name:
+        <input type="text" name="name" value="<%= rstrnt.name %>">
+    </label>
+    <label>Address:
+        <input type="text" name="address" value="<%= rstrnt.address %>">
+    </label>
+    <label>URL:
+        <input type="text" name="url" value="<%= rstrnt.link %>">
+    </label>
+    <label>Phone:
+        <input type="text" name="phone" value="<%= rstrnt.phone %>">
+    </label>
+    <input type="submit" value="Update Restaurant">
+</form>
+
+<%- include('../partials/footer') %>

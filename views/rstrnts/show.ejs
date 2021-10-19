@@ -1,9 +1,20 @@
 <%- include('../partials/header') %>
 <header id="rstrnt-info">
     <h2><%= rstrnt.name %></h2>
-    <p><span>Link:</span> <a href="<%= rstrnt.url %>"></a>&nbsp;|
-        <span>Address:</span> <%= rstrnt.address %>&nbsp;|
-        <span>Phone:</span> <%= rstrnt.phone %></p>
+    <p><span>Link:</span> <a href="<%= rstrnt.link %>"></a>&nbsp;|
+        <span>Address:</span>
+        <%= rstrnt.address %>&nbsp;|
+        <span>Phone:</span>
+        <%= rstrnt.phone %>
+    </p>
+    <% if (user) { %>
+        <form action="/rstrnts/<%= rstrnt._id %>/edit" method="GET">
+            <button type="submit">Edit this restaurant?</button>
+        </form>
+        <form action="/rstrnts/<%= rstrnt._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete this restaurant?</button>
+        </form>
+        <% } %>
     </header>
     
     <main id="rstrnt-details">
@@ -25,7 +36,7 @@
     <section id="comments">
         <% rstrnt.comments.forEach(function(c) { %>
             <div>
-                <h3><%= user.name %> says...</h3>
+                <h3><%= c.creator %> says...</h3>
                 <%= c.satisfaction %> | <%= c.content %>
             </div>
         <% }); %>
