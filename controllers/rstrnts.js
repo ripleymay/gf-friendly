@@ -31,7 +31,12 @@ function create(req, res) {
 
 function show(req, res) {
     Rstrnt.findById(req.params.id, function(err, rstrnt) {
-        res.render('rstrnts/show', {rstrnt});
+        let commented = true;
+        if (req.user) {
+            rstrnt.comments.sort((c1, c2) => c1.creator.equals(req.user._id) ? -1 : 1);
+            commented = rstrnt.comments.some(c => c.creator.equals(req.user._id));
+        }
+        res.render('rstrnts/show', {rstrnt, commented});
     });
 }
 

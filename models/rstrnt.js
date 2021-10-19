@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema({
     content: String,
     satisfaction: Number,
-    creator: Schema.Types.ObjectId
+    creator: Schema.Types.ObjectId,
+    creatorName: String,
+    creatorAvatar: String
 });
 
 const menuSchema = new Schema({

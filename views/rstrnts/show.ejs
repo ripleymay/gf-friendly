@@ -41,20 +41,28 @@
     <section id="comments">
         <% rstrnt.comments.forEach(function(c) { %>
             <div>
-                <h3><%= c.creator %> says...</h3>
-                <%= c.satisfaction %> | <%= c.content %>
+                <h3>
+                    <img src="<%= c.creatorAvatar %>" alt="avatar">
                 <% if (user?._id.equals(c.creator)) { %>
-                    <form action="/comments/<%= c._id %>/edit" method="GET">
-                        <button type="submit">Edit this comment?</button>
-                    </form>
-                    <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete this comment?</button>
-                    </form>
-                    <% } %>
+                    You've said..
+                </h3>
+                <form action="/comments/<%= c._id %>/edit" method="GET">
+                    <button type="submit">Edit this comment?</button>
+                </form>
+                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete this comment?</button>
+                </form>
+                <% } else { %>
+                    <%= c.creatorName %> says...
+                </h3>
+                <% } %>
+                <%= c.satisfaction %> | <%= c.content %>
+            <% }); %>
             </div>
-        <% }); %>
-
+            
+        <% if (!commented) { %>
         <a id="new-comment" href="/rstrnts/<%= rstrnt.id %>/comments/new">Add Comment</a>
+        <% } %>
     </section>
 </main>
 <%- include('../partials/footer') %>
