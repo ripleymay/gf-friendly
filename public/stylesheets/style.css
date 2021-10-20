@@ -3,16 +3,23 @@
   font-family: 'Asap', sans-serif;
 }
 
-body, main, #landing > section, #login-options {
+body, main, #landing > section, #login-options, #rstrnt-info,
+#menus {
   display: flex;
   flex-direction: column;
-  justify-content: center
+  justify-content: center;
+  align-items: center;
 }
 
 body {
   /* height: 100vh; */
   margin: 0;
-  /* background-color: #FDFDFD; */
+  color: #00203D;
+  background-color: #FDFDFD;
+}
+
+main {
+  width: 90%;
 }
 
 #landing {
@@ -33,7 +40,7 @@ body {
 }
 
 #landing-descrip, #comments {
-  border-left: solid 5px #4A5759;
+  border-left: solid 5px #59356E;
 }
 
 #login-options > h1 {
@@ -49,16 +56,18 @@ body {
   padding: 4% 2%;
   margin: 5%;
   width: 85%;
-  color: #3d405b;
+  color: #00203D;
   font-size: 18px;
-  background-color: #F7E1D7;
-  border: solid 2px #4A5759;
+  background-color: #FFC8DD;
+  border: solid 2px #59356E;
   border-radius: 10px;
   text-decoration: none;
 }
 
-#login-options > a:hover {
-  background-color: #EDAFB8;
+#login-options > a:hover, nav > a:hover {
+  background-color: #FFAFCC;
+  text-decoration: none;
+  color: #00203D; 
 }
 
 .avatar {
@@ -70,65 +79,75 @@ body {
 body > nav {
   display: flex;
   height: 8vh;
-  max-height: 60px;
+  width: 100vw;
+  max-height: 70px;
   justify-content: space-between;
   align-items: center;
-  background-color: #555B6E;
+  background-color: #59356E;
   padding: 0 20px;
 }
 
 nav > a {
-  color: white;
+  padding: 0.5%;
+  color: #00203D;
+  font-size: 18px;
+  background-color: #FFC8DD;
+  border: solid 2px white;
+  border-radius: 10px;
 }
 
-
-#rstrnts, #rstrnt-info, 
-#rstrnt-details {
-  display: flex;
-}
-
-
-
-#rstrnts-index {
-  flex-direction: column;
-  margin: 5% 10%;
-}
-
-#rstrnts-index > h2 {
-  text-align: center;
+.title {
+  margin: 5vmin 0 1vmin 0;
+  font-size: 36px;
 }
 
 #rstrnts {
+  margin: 5vmin 0 0 0;
+  display: flex;
   flex-wrap: wrap;
+  width: 90%;
 }
 
-#rstrnts > * {
-  margin: 8px;
-  color: black;
+#rstrnts > a {
+  margin: 1%;
+  color: #00203D;
 }
 
 #rstrnts div {
-  background-color: #BEE3DB;
+  padding: 5%;
+  background-color: #BDE0FE;
   border-radius: 10px;
   min-width: 175px;
+  min-height: 100px;
   text-align: center;
+  font-size: 22px;
+}
+
+#rstrnts #new-rstrnt {
+  background-color: #FFC8DD;
 }
 
 #rstrnts div:hover {
-  background-color: lightpink;
+  background-color: #A2D2FF;
+}
+
+#rstrnts #new-rstrnt:hover {
+  background-color: #FFAFCC;
 }
 
 #rstrnts > a:hover {
   text-decoration: none;
 }
 
-#rstrnt-info * {
-  text-align: center;
+#rstrnt-info > p {
+  font-size: 22px;
+  margin: 0;
 }
 
-#rstrnt-info {
-  flex-direction: column;
-  margin: 5% 10%;
+#rstrnt-details {
+  display: flex;
+  width: 90%;
+  margin: 5vmin 0 0 0;
 }
 
 #rstrnt-info form, #comments form {
@@ -136,50 +155,87 @@ nav > a {
 }
 
 #rstrnt-info .btn, #rstrnt-details .btn {
+  margin: 2vmin 2vmin 0 2vmin;
+  font-size: 18px;
   border-radius: 10px;
-  border: solid 2px #602f6b;
+  border: solid 2px #59356E;
 }
 
-#rstrnt-info span {
-  font-weight: bold;
+#rstrnt-info .del, #rstrnt-details .del {
+  background-color: #FFCBCB;
 }
 
-#rstrnt-details {
-  margin: 0% 10%;
-  justify-content: stretch;
+#rstrnt-info .edit, #rstrnt-details .edit {
+  background-color: #fafad2;
 }
 
-#menu-items {
+#menus {
   width: 30%;
-  padding-right: 20px;
+  padding-right: 5%;
 }
 
-#menu-items >  div {
+#menus > p {
+  font-size: 22px;
+}
+
+#menu-items { 
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#menu-items > div {
   border-radius: 10px;
-  padding: 6px;
-  margin: 4px;
-  background-color: #FFD6BA;
+  padding: 5px;
+  margin: 5px;
+  background-color: #DAC8E4;
   width: fit-content;
-  display: inline-block;
+}
+
+#menu-items > div > * {
+  display: inline-flex;
+}
+
+#menus > div .btn.del {
+  font-size: 1rem;
+  margin: 1px;
+  padding: 2px 8px;
+  border: solid 1px #59356E;
 }
 
 #add-menu {
-  margin-top: 20px;
+  margin-top: 1rem;
 }
+
+.input-group input {
+  border: solid 2px #59356E;
+}
+
+#plus-menu {
+  color: #00203D;
+  background-color: #DAC8E4;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  padding: 2px 12px;
+}
+
+
+
+
+
 
 #comments {
   width: 80%;
 }
 
 #comments .comment {
-  background-color: #FFD6BA;
+  background-color: #BDE0FE;
   border-radius: 10px;
   margin: 10px;
   padding: 5px;
 }
 
 #comments .owner {
-  background-color: #BEE3DB;
+  background-color: #FFC8DD;
 }
 
 #comments .comment img {

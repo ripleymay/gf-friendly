@@ -1,9 +1,11 @@
 <%- include('../partials/header') %>
 
-<h2>Restaurants!</h2>
+<h2 class="title">Browse restaurants</h2>
 <section id="rstrnts">
     <a href="/rstrnts/new">
-        <div>+ Add a new restaurant</div>
+        <div  id="new-rstrnt">
+            <p>+ Add a new <br/> restaurant<p/>
+        </div>
     </a>
     <% rstrnts.forEach(function(r) { %>
         <a href="/rstrnts/<%= r._id %>">
