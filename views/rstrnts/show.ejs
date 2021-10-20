@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<header id="rstrnt-info">
+<section id="rstrnt-info">
     <h2><%= rstrnt.name %></h2>
     <p><span>Link:</span> <a href="<%= rstrnt.link %>">click here</a>&nbsp;|
         <span>Address:</span>
@@ -8,17 +8,19 @@
         <%= rstrnt.phone %>
     </p>
     <% if (user) { %>
+    <div>
         <form action="/rstrnts/<%= rstrnt._id %>/edit" method="GET">
-            <button type="submit">Edit this restaurant?</button>
+            <button type="submit" class="btn edit">Edit</button>
         </form>
         <form action="/rstrnts/<%= rstrnt._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete this restaurant?</button>
+            <button type="submit" class="btn del">Delete</button>
         </form>
-        <% } %>
-    </header>
+    </div>
+    <% } %>
+</section>
     
-    <main id="rstrnt-details">
-    <section id="menu-items">
+<section id="rstrnt-details">
+    <article id="menu-items">
         <p>Safe menu items</p>
         <% rstrnt.menus.forEach(function(m) { %>
             <div>$<%= m.price %> | <%= m.name %>
@@ -29,40 +31,40 @@
                 <% }; %>
             </div>
             <% }); %>
-                <form id="add-menu" action="/rstrnts/<%= rstrnt._id %>/menus" method="POST">
-                    <div class="input-group mb-3">
-                        <input type="text" name="price" class="form-control" value="$">
-                        <input type="text" name="name" class="form-control" value="Menu item">
-                        <input type="submit" class="input-group-text" value="+">
-                    </div>
-                </form>
-    </section>
+            <form id="add-menu" action="/rstrnts/<%= rstrnt._id %>/menus" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" name="price" class="form-control" value="$">
+                    <input type="text" name="name" class="form-control" value="Menu item">
+                    <input type="submit" class="input-group-text" value="+">
+                </div>
+            </form>
+        </article>
 
-    <section id="comments">
+    <article id="comments">
+        <% if (!commented) { %>
+        <a id="new-comment" href="/rstrnts/<%= rstrnt.id %>/comments/new">Add Comment</a>
+        <% } %>
         <% rstrnt.comments.forEach(function(c) { %>
-            <div>
+            <div class="comment <%= user?._id.equals(c.creator) ? 'owner' : ''%>">
                 <h3>
                     <img src="<%= c.creatorAvatar %>" alt="avatar">
                 <% if (user?._id.equals(c.creator)) { %>
                     You've said..
                 </h3>
                 <form action="/comments/<%= c._id %>/edit" method="GET">
-                    <button type="submit">Edit this comment?</button>
+                    <button type="submit" class="btn edit">Edit</button>
                 </form>
                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                    <button type="submit">Delete this comment?</button>
+                    <button type="submit" class="btn del">Delete</button>
                 </form>
                 <% } else { %>
                     <%= c.creatorName %> says...
                 </h3>
                 <% } %>
                 <%= c.satisfaction %> | <%= c.content %>
-            <% }); %>
             </div>
+            <% }); %>
             
-        <% if (!commented) { %>
-        <a id="new-comment" href="/rstrnts/<%= rstrnt.id %>/comments/new">Add Comment</a>
-        <% } %>
-    </section>
-</main>
+        </article>
+</section>
 <%- include('../partials/footer') %>

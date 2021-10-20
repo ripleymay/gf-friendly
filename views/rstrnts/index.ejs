@@ -1,13 +1,17 @@
 <%- include('../partials/header') %>
 
-<main id="rstrnts-index">
-    <h2>Restaurants!</h2>
-    <section id="rstrnts">
-        <a href="/rstrnts/new"><div>+ Add a new restaurant</div></a>
-        <% rstrnts.forEach(function(r) { %>
-            <a href="/rstrnts/<%= r._id %>"><div><%= r.name %></div></a>
-            <% }); %>
-    </section>
-</main>
+<h2>Restaurants!</h2>
+<section id="rstrnts">
+    <a href="/rstrnts/new">
+        <div>+ Add a new restaurant</div>
+    </a>
+    <% rstrnts.forEach(function(r) { %>
+        <a href="/rstrnts/<%= r._id %>">
+            <div>
+                <%= r.name %>
+            </div>
+        </a>
+    <% }); %>
+</section>
 
 <%- include('../partials/footer') %>

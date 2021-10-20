@@ -16,10 +16,16 @@ const menuSchema = new Schema({
 });
 
 const rstrntSchema = new Schema({
-    name: String,
+    name: { 
+        type: String, 
+        required: true
+    },
     address: String,
     link: String,
-    phone: String,
+    phone: {
+        type: String,
+        match: /[1-9]\d{2}-\d{3}-\d{4}/
+    },
     creator: Schema.Types.ObjectId,
     comments: [commentSchema],
     menus: [menuSchema]
