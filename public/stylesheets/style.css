@@ -81,6 +81,7 @@ body > nav {
   height: 8vh;
   width: 100vw;
   max-height: 70px;
+  min-height: 50px;
   justify-content: space-between;
   align-items: center;
   background-color: #59356E;
@@ -92,7 +93,6 @@ nav > a {
   color: #00203D;
   font-size: 18px;
   background-color: #FFC8DD;
-  border: solid 2px white;
   border-radius: 10px;
 }
 
@@ -195,7 +195,7 @@ nav > a {
   display: inline-flex;
 }
 
-#menus > div .btn.del {
+#menus > div .btn.del, #comments .btn.del, #comments .btn.edit {
   font-size: 1rem;
   margin: 1px;
   padding: 2px 8px;
@@ -218,20 +218,46 @@ nav > a {
   padding: 2px 12px;
 }
 
-
-
-
-
-
 #comments {
-  width: 80%;
+  width: 70%;
+  padding-left: 5%;
+}
+
+#comments > #new-comment {
+  font-size: 22px;
+  text-decoration: none;
+  color: #00203D;
+}
+
+#comments > #new-comment > div:hover {
+  background-color: #FFAFCC;
+}
+
+#comments .comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#comments .comment-header > div {
+  display: flex;
+  align-items: center;
 }
 
 #comments .comment {
   background-color: #BDE0FE;
   border-radius: 10px;
   margin: 10px;
-  padding: 5px;
+  padding: 2%;
+}
+
+#comments h3 {
+  font-size: 24px;
+}
+
+#comments p {
+  margin: 0;
+  display: inline-flex;
 }
 
 #comments .owner {
@@ -239,6 +265,7 @@ nav > a {
 }
 
 #comments .comment img {
-  height: 60px;
+  height: 50px;
   border-radius: 50%;
+  margin: 0 5px;
 }

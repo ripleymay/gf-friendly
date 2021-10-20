@@ -22,6 +22,9 @@
     <article id="menus">
         <p>Safe menu items</p>
         <div id="menu-items">
+        <% if (!rstrnt.menus.length) { %>
+        <p>None yet added</p>
+        <% } else { %>
         <% rstrnt.menus.forEach(function(m) { %>
             <div>$<%= m.price %> | <%= m.name %>
                 <% if (user) { %>
@@ -31,6 +34,7 @@
                 <% } %>
             </div>
         <% }); %>
+        <% } %>
         </div>
         <% if (user) { %>    
         <form id="add-menu" action="/rstrnts/<%= rstrnt._id %>/menus" method="POST">
@@ -46,30 +50,49 @@
     </article>
 
     <article id="comments">
-        <% if (!commented) { %>
-        <a id="new-comment" href="/rstrnts/<%= rstrnt.id %>/comments/new">Add Comment</a>
+    <% if (!rstrnt.comments.length && !user) { %>
+        <div class="comment">No comments yet</div>
+    <% } else { %>
+    <% if (!commented) { %>
+        <a id="new-comment" href="/rstrnts/<%= rstrnt.id %>/comments/new">
+            <div class="comment owner">+ Add comment</div>
+        </a>
         <% } %>
         <% rstrnt.comments.forEach(function(c) { %>
-            <div class="comment <%= user?._id.equals(c.creator) ? 'owner' : ''%>">
+        <div class="comment <%= user?._id.equals(c.creator) ? 'owner' : ''%>">
+            <div class="comment-header">
                 <h3>
                     <img src="<%= c.creatorAvatar %>" alt="avatar">
                 <% if (user?._id.equals(c.creator)) { %>
-                    You've said..
+                    You've said...
                 </h3>
-                <form action="/comments/<%= c._id %>/edit" method="GET">
-                    <button type="submit" class="btn edit">Edit</button>
-                </form>
-                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn del">X</button>
-                </form>
+                <div>
+                    <p>
+                        <%- c.satisfaction === 1 ? '<img src="https://i.imgur.com/pEFTBIi.png" alt="bad">' : '' %>
+                        <%- c.satisfaction === 2 ? '<img src="https://i.imgur.com/7f0hlbq.png" alt="neutral">' : '' %>
+                        <%- c.satisfaction === 3 ? '<img src="https://i.imgur.com/GP6uHKU.png" alt="great">' : '' %>
+                    </p>
+                    <form action="/comments/<%= c._id %>/edit" method="GET">
+                        <button type="submit" class="btn edit">Edit</button>
+                    </form>
+                    <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn del">X</button>
+                    </form>
+                </div>
                 <% } else { %>
-                    <%= c.creatorName %> says...
+                    <%= c.creatorName %>
                 </h3>
+                <p>
+                    <%- c.satisfaction === 1 ? '<img src="https://i.imgur.com/pEFTBIi.png" alt="bad">' : '' %>
+                    <%- c.satisfaction === 2 ? '<img src="https://i.imgur.com/7f0hlbq.png" alt="neutral">' : '' %>
+                    <%- c.satisfaction === 3 ? '<img src="https://i.imgur.com/GP6uHKU.png" alt="great">' : '' %>
+                </p>                
                 <% } %>
-                <%= c.satisfaction %> | <%= c.content %>
             </div>
-            <% }); %>
-            
-        </article>
+            <%= c.content %>
+        </div>
+        <% }); %>
+        <% } %>
+    </article>
 </section>
 <%- include('../partials/footer') %>
