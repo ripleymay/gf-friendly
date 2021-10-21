@@ -4,7 +4,7 @@
 }
 
 body, main, #landing > section, #login-options, #rstrnt-info,
-#menus {
+#menus, #add-rstrnt, #edit-rstrnt, #add-comment, #edit-comment {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -182,7 +182,9 @@ nav > a:hover > span {
   display: inline-flex;
 }
 
-#rstrnt-edit .btn, #rstrnt-details .btn {
+#rstrnt-edit .btn, #rstrnt-details .btn, 
+#add-rstrnt .btn, #edit-rstrnt .btn,
+#add-comment .btn, #edit-comment .btn {
   margin: 1vmin;
   font-size: 18px;
   border-radius: 10px;
@@ -251,7 +253,7 @@ nav > a:hover > span {
   margin-top: 1rem;
 }
 
-.input-group input {
+.input-group input, .input-group textarea, .input-group select {
   border: solid 2px #283618;
 }
 
@@ -313,4 +315,27 @@ nav > a:hover > span {
   height: 50px;
   border-radius: 50%;
   margin: 0 5px;
+}
+
+#add-rstrnt {
+  margin-top: 2%;
+}
+
+#add-rstrnt > *, #edit-rstrnt > *, 
+#add-comment > *, #edit-comment > * {
+  margin: 3%;
+  width: fit-content;
+}
+
+#add-rstrnt .input-group-text, #edit-rstrnt .input-group-text,
+#add-comment .input-group-text, #edit-comment .input-group-text {
+  border: solid 2px #283618;
+  color: #283618;
+  padding: 2px 12px;
+  background-color: #E9EDC9;
+}
+
+#add-rstrnt .btn, #edit-rstrnt .btn,
+#add-comment .btn, #edit-comment .btn  {
+  background-color: #D4A373;
 }

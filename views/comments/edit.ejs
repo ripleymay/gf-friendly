@@ -1,18 +1,24 @@
 <%- include('../partials/header') %>
 
-<h2>Edit comment for <%= rstrnt.name %><h2>
-<form id="add-comment" action="/comments/<%= comment._id %>?_method=PUT" method="POST">
-    <label>Satisfied?
-        <select name="satisfaction">
-            <option value=1 <%- comment.satisfaction === 1 ? 'selected' : '' %>>Bad!</option>
-            <option value=2 <%- comment.satisfaction === 2 ? 'selected' : '' %>>Alright</option>
-            <option value=3 <%- comment.satisfaction === 3 ? 'selected' : '' %>>Great!</option>
-        </select>            
-    </label>
-    <label>Comment:
-        <input type="text" name="content" value="<%= comment.content %>">
-    </label>
-    <input type="submit" value="Update Comment">
+<h2 class="title">Edit comment for <%= rstrnt.name %><h2>
+<form id="edit-comment" action="/comments/<%= comment._id %>?_method=PUT" method="POST">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Satisfied?</span>
+        </div>
+        <select name="satisfaction" class="form-control">
+            <option value=3 <%- comment.satisfaction === 3 ? 'selected' : '' %>>:)</option>
+            <option value=2 <%- comment.satisfaction === 2 ? 'selected' : '' %>>:|</option>
+            <option value=1 <%- comment.satisfaction === 1 ? 'selected' : '' %>>:(</option>
+        </select>      
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Comment</span>
+        </div>
+        <textarea type="text" class="form-control" name="content"><%= comment.content %></textarea>
+    </div>
+    <input type="submit" class="btn" value="Update Comment">
 </form>
 
 <%- include('../partials/footer') %>

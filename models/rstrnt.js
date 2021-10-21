@@ -21,6 +21,8 @@ const rstrntSchema = new Schema({
         required: true
     },
     address: String,
+    city: String,
+    state: String,
     link: String,
     phone: {
         type: String,

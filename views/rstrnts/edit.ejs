@@ -1,20 +1,34 @@
 <%- include('../partials/header') %>
-<h2>Make changes to <%= rstrnt.name %>?</h2>
+<h2 class="title">Make changes to <%= rstrnt.name %>?</h2>
 
 <form id="edit-rstrnt" action="/rstrnts/<%= rstrnt._id %>?_method=PUT" method="POST">
-    <label>Name:
-        <input type="text" name="name" value="<%= rstrnt.name %>">
-    </label>
-    <label>Address:
-        <input type="text" name="address" value="<%= rstrnt.address %>">
-    </label>
-    <label>URL:
-        <input type="text" name="url" value="<%= rstrnt.link %>">
-    </label>
-    <label>Phone:
-        <input type="text" name="phone" value="<%= rstrnt.phone %>">
-    </label>
-    <input type="submit" value="Update Restaurant">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Name</span>
+        </div>
+        <input type="text" class="form-control" name="name" value="<%= rstrnt.name %>">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Address</span>
+        </div>
+        <input type="text" class="form-control" placeholder="street" name="address" value="<%= rstrnt.address %>">
+        <input type="text" class="form-control" placeholder="city" name="city" value="<%= rstrnt.city %>">
+        <input type="text" class="form-control" placeholder="state" name="state" value="<%= rstrnt.state %>">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">URL</span>
+        </div>
+        <input type="text" class="form-control" name="link" value="<%= rstrnt.link %>">
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Phone</span>
+        </div>
+        <input type="text" class="form-control" name="phone" placeholder="XXX-XXX-XXXX" pattern="[1-9]\d{2}-\d{3}-\d{4}" value="<%= rstrnt.phone %>">
+    </div>
+    <input type="submit" class="btn" value="Update Restaurant">
 </form>
 
 <%- include('../partials/footer') %>
