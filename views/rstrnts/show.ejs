@@ -92,9 +92,11 @@
         <form action="/rstrnts/<%= rstrnt._id %>/edit" method="GET">
             <button type="submit" class="btn edit">Edit restaurant</button>
         </form>
+        <% if (user?._id.equals(rstrnt.creator)) { %>
         <form action="/rstrnts/<%= rstrnt._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn del">Delete restaurant</button>
         </form>
+        <% } %>
     </div>
     <% } %>
 </section>

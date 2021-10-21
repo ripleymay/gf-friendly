@@ -128,7 +128,10 @@ nav > a:hover > span {
   margin: 5vmin 0 0 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 90%;
+  background-color: #DDA15E;
+  border-radius: 10px;
 }
 
 #rstrnts > a {
@@ -139,7 +142,6 @@ nav > a:hover > span {
 #rstrnts div {
   padding: 5%;
   background-color: #E9EDC9;
-  border: solid 1px #606C38;
   border-radius: 10px;
   min-width: 175px;
   min-height: 100px;
@@ -148,15 +150,16 @@ nav > a:hover > span {
 }
 
 #rstrnts #new-rstrnt {
-  background-color: #FAEDCD;
+  background-color: #FEFAE0;
 }
 
 #rstrnts div:hover {
   background-color: #CCD5AE;
+  border: solid 2px #606C38;
 }
 
 #rstrnts #new-rstrnt:hover {
-  background-color: #DDA15E;
+  background-color: #FAEDCD;
 }
 
 #rstrnts > a:hover {
