@@ -12,7 +12,8 @@
     <% rstrnts.forEach(function(r) { %>
         <a href="/rstrnts/<%= r._id %>">
             <div>
-                <%= r.name %>
+                <span><%= r.name %></span>
+                <div id="short-descrip"><%= r.description %></div>
             </div>
         </a>
     <% }); %>

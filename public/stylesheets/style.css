@@ -139,21 +139,35 @@ nav > a:hover > span {
   color: #283618;
 }
 
-#rstrnts div {
+#rstrnts > a > div {
   padding: 5%;
   background-color: #E9EDC9;
   border-radius: 10px;
-  min-width: 175px;
-  min-height: 100px;
+  width: 200px;
+  height: 160px;
   text-align: center;
   font-size: 22px;
+  /* overflow: hidden; */
 }
+
+#rstrnts div #short-descrip {
+  font-size: 16px;
+  height: 70%;
+  overflow: hidden;
+  padding-top: 5px;
+  border-top: solid 2px #283618;
+}
+
+/* #rstrnts div span {
+  padding-bottom: 5px;
+  border-bottom: solid 2px #283618;
+} */
 
 #rstrnts #new-rstrnt {
   background-color: #FEFAE0;
 }
 
-#rstrnts div:hover {
+#rstrnts > a > div:hover {
   background-color: #CCD5AE;
   border: solid 2px #606C38;
 }
@@ -168,7 +182,7 @@ nav > a:hover > span {
 
 #rstrnt-info > p {
   font-size: 22px;
-  margin: 0;
+  margin: 1vmin 0;
 }
 
 #rstrnt-details {
@@ -312,6 +326,14 @@ nav > a:hover > span {
 
 #comments .owner {
   background-color: #E9EDC9;
+}
+
+#comments .owner #user-ctrls {
+  display: none;
+}
+
+#comments .owner:hover #user-ctrls {
+  display: inline-flex;
 }
 
 #comments .comment img {

@@ -2,10 +2,16 @@
 <section id="rstrnt-info">
     <h2 class="title"><%= rstrnt.name %></h2>
     <p>
-        &#128279;&nbsp;<a href="<%= rstrnt.link %>" target="_blank">Website</a>&nbsp;|&nbsp;
-        &#128205;&nbsp;<%= rstrnt.address %>, <%= rstrnt.city %>, <%= rstrnt.state %>&nbsp;|&nbsp;
-        &#128222;&nbsp;<%= rstrnt.phone %>
+        &#128279;&nbsp;
+        <% if (rstrnt.link) { %>
+        <a href="<%= rstrnt.link %>" target="_blank">Website</a>
+        <% } else { %>
+        N/A
+        <% } %>&nbsp;|&nbsp;
+        &#128205;&nbsp;<%= [rstrnt.address, rstrnt.city, rstrnt.state].filter(Boolean).join(', ') %>&nbsp;|&nbsp;
+        &#128222;&nbsp;<%= (rstrnt.phone) ? rstrnt.phone : 'N/A' %>
     </p>
+    <p><%= rstrnt.description %></p>
 </section>
     
 <section id="rstrnt-details">
@@ -29,7 +35,7 @@
         <% if (user) { %>    
         <form id="add-menu" action="/rstrnts/<%= rstrnt._id %>/menus" method="POST">
             <div class="input-group">
-                <input type="text" name="price" class="form-control" placeholder="$">
+                <input type="text" name="price" class="form-control" placeholder="$" pattern="\d+\.?\d{0,2}">
                 <input type="text" name="name" class="form-control" placeholder="Item">
                 <div class="input-group-prepend">
                     <input id="plus-menu" type="submit" class="input-group-text" value="Add">
@@ -62,12 +68,14 @@
                         <%- c.satisfaction === 2 ? '<img src="https://i.imgur.com/7f0hlbq.png" alt="neutral">' : '' %>
                         <%- c.satisfaction === 3 ? '<img src="https://i.imgur.com/GP6uHKU.png" alt="great">' : '' %>
                     </p>
-                    <form action="/comments/<%= c._id %>/edit" method="GET">
-                        <button type="submit" class="btn edit">Edit</button>
-                    </form>
-                    <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn del">X</button>
-                    </form>
+                    <div id="user-ctrls">
+                        <form action="/comments/<%= c._id %>/edit" method="GET">
+                            <button type="submit" class="btn edit">Edit</button>
+                        </form>
+                        <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn del">X</button>
+                        </form>
+                    </div>
                 </div>
                 <% } else { %>
                     <%= c.creatorName %>

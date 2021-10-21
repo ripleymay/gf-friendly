@@ -3,15 +3,24 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     content: String,
-    satisfaction: Number,
+    satisfaction: {
+        type: Number,
+        required: true
+    },
     creator: Schema.Types.ObjectId,
     creatorName: String,
     creatorAvatar: String
 });
 
 const menuSchema = new Schema({
-    name: String,
-    price: String,
+    name: { 
+        type: String, 
+        required: true 
+    },
+    price: {
+        type: String,
+        match: /\d+\.?\d{0,2}/
+    },
     creator: Schema.Types.ObjectId
 });
 
@@ -22,12 +31,19 @@ const rstrntSchema = new Schema({
     },
     address: String,
     city: String,
-    state: String,
-    link: String,
+    state: {
+        type: String,
+        match: /[A-Z][A-Z]/
+    },
+    link: {
+        type: String,
+        match: /https?:\/\/\S+/
+    },
     phone: {
         type: String,
         match: /[1-9]\d{2}-\d{3}-\d{4}/
     },
+    description: String,
     creator: Schema.Types.ObjectId,
     comments: [commentSchema],
     menus: [menuSchema]

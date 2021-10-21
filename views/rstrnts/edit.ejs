@@ -28,6 +28,12 @@
         </div>
         <input type="text" class="form-control" name="phone" placeholder="XXX-XXX-XXXX" pattern="[1-9]\d{2}-\d{3}-\d{4}" value="<%= rstrnt.phone %>">
     </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Description</span>
+        </div>
+        <textarea class="form-control" name="description"><%= rstrnt.description %></textarea>
+    </div>
     <input type="submit" class="btn" value="Update Restaurant">
 </form>
 
