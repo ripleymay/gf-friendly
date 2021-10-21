@@ -6,16 +6,6 @@
         &#128205;&nbsp;<%= rstrnt.address %>&nbsp;|&nbsp;
         &#128222;&nbsp;<%= rstrnt.phone %>
     </p>
-    <% if (user) { %>
-    <div>
-        <form action="/rstrnts/<%= rstrnt._id %>/edit" method="GET">
-            <button type="submit" class="btn edit">Edit</button>
-        </form>
-        <form action="/rstrnts/<%= rstrnt._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn del">Delete</button>
-        </form>
-    </div>
-    <% } %>
 </section>
     
 <section id="rstrnt-details">
@@ -29,7 +19,7 @@
             <div>$<%= m.price %> | <%= m.name %>
                 <% if (user) { %>
                     <form action="/menus/<%= m._id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn del">X</button>
+                        <button type="submit">X</button>
                     </form>
                 <% } %>
             </div>
@@ -95,4 +85,18 @@
         <% } %>
     </article>
 </section>
+
+<section id="rstrnt-edit">
+<% if (user) { %>
+    <div>
+        <form action="/rstrnts/<%= rstrnt._id %>/edit" method="GET">
+            <button type="submit" class="btn edit">Edit restaurant</button>
+        </form>
+        <form action="/rstrnts/<%= rstrnt._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn del">Delete restaurant</button>
+        </form>
+    </div>
+    <% } %>
+</section>
+
 <%- include('../partials/footer') %>

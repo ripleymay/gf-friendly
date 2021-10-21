@@ -14,20 +14,29 @@ body, main, #landing > section, #login-options, #rstrnt-info,
 body {
   /* height: 100vh; */
   margin: 0;
-  color: #00203D;
-  background-color: #FDFDFD;
+  color: #283618;
+  background-color: #FEFDF2;
 }
 
 main {
   width: 90%;
 }
 
+#landing-body {
+  background-image: url("https://i.imgur.com/VFtxew4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
 #landing {
+  background-color: rgba(254, 250, 224, 0.8);
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
-  margin: 15%;
+  padding: 5%;
   height: 50%;
+  width: 75%;
+  border-radius: 10px;
 }
 
 #landing > section {
@@ -40,34 +49,34 @@ main {
 }
 
 #landing-descrip, #comments {
-  border-left: solid 5px #59356E;
+  border-left: solid 5px #283618;
 }
 
 #login-options > h1 {
   margin-bottom: 10%;
-  font-size: 40px;
+  font-size: 6vmin;
 }
 
 #landing-descrip > p {
-  font-size: 16px;
+  font-size: 2vmin;
 }
 
 #login-options > a {
-  padding: 4% 2%;
-  margin: 5%;
-  width: 85%;
+  padding: 3% 1%;
+  margin: 2%;
+  width: 75%;
   color: #00203D;
-  font-size: 18px;
-  background-color: #FFC8DD;
-  border: solid 2px #59356E;
+  font-size: 2vmin;
+  background-color: #E9EDC9;
+  border: solid 2px #283618;
   border-radius: 10px;
   text-decoration: none;
 }
 
-#login-options > a:hover, nav > a:hover {
-  background-color: #FFAFCC;
+#login-options > a:hover {
+  background-color: #CCD5AE;
   text-decoration: none;
-  color: #00203D; 
+  color: #283618; 
 }
 
 .avatar {
@@ -84,7 +93,7 @@ body > nav {
   min-height: 50px;
   justify-content: space-between;
   align-items: center;
-  background-color: #59356E;
+  background-color: #283618;
   padding: 0 20px;
 }
 
@@ -92,8 +101,22 @@ nav > a {
   padding: 0.5%;
   color: #00203D;
   font-size: 18px;
-  background-color: #FFC8DD;
+  background-color: #FAEDCD;
   border-radius: 10px;
+}
+
+nav > a > span {
+  display: none;
+}
+
+nav > a:hover {
+  background-color: #D4A373;
+  text-decoration: none;
+  color: #283618; 
+}
+
+nav > a:hover > span {
+  display: inline-flex;
 }
 
 .title {
@@ -110,12 +133,13 @@ nav > a {
 
 #rstrnts > a {
   margin: 1%;
-  color: #00203D;
+  color: #283618;
 }
 
 #rstrnts div {
   padding: 5%;
-  background-color: #BDE0FE;
+  background-color: #E9EDC9;
+  border: solid 1px #606C38;
   border-radius: 10px;
   min-width: 175px;
   min-height: 100px;
@@ -124,15 +148,15 @@ nav > a {
 }
 
 #rstrnts #new-rstrnt {
-  background-color: #FFC8DD;
+  background-color: #FAEDCD;
 }
 
 #rstrnts div:hover {
-  background-color: #A2D2FF;
+  background-color: #CCD5AE;
 }
 
 #rstrnts #new-rstrnt:hover {
-  background-color: #FFAFCC;
+  background-color: #DDA15E;
 }
 
 #rstrnts > a:hover {
@@ -147,26 +171,31 @@ nav > a {
 #rstrnt-details {
   display: flex;
   width: 90%;
-  margin: 5vmin 0 0 0;
+  margin: 5vmin 0;
 }
 
-#rstrnt-info form, #comments form {
+#rstrnt-edit {
+  justify-self: end;
+}
+
+#rstrnt-edit form, #comments form {
   display: inline-flex;
 }
 
-#rstrnt-info .btn, #rstrnt-details .btn {
-  margin: 2vmin 2vmin 0 2vmin;
+#rstrnt-edit .btn, #rstrnt-details .btn {
+  margin: 1vmin;
   font-size: 18px;
   border-radius: 10px;
-  border: solid 2px #59356E;
+  border: solid 2px #283618;
 }
 
-#rstrnt-info .del, #rstrnt-details .del {
-  background-color: #FFCBCB;
+#rstrnt-edit .del, #rstrnt-details .del {
+  background-color: #283618;
+  color: #FEFAE0;
 }
 
-#rstrnt-info .edit, #rstrnt-details .edit {
-  background-color: #fafad2;
+#rstrnt-edit .edit, #rstrnt-details .edit {
+  background-color: #FAEDCD;
 }
 
 #menus {
@@ -187,7 +216,7 @@ nav > a {
   border-radius: 10px;
   padding: 5px;
   margin: 5px;
-  background-color: #DAC8E4;
+  background-color: #E9EDC9;
   width: fit-content;
 }
 
@@ -195,11 +224,27 @@ nav > a {
   display: inline-flex;
 }
 
-#menus > div .btn.del, #comments .btn.del, #comments .btn.edit {
+#comments .btn.del, #comments .btn.edit {
   font-size: 1rem;
   margin: 1px;
   padding: 2px 8px;
-  border: solid 1px #59356E;
+  border: solid 1px #283618;
+}
+
+#menu-items > div > form > button {
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #283618;
+  color: #FEFAE0;
+}
+
+#menu-items > div > form {
+  display: none;
+}
+
+#menu-items > div:hover > form {
+  display: inline-flex;
 }
 
 #add-menu {
@@ -207,12 +252,12 @@ nav > a {
 }
 
 .input-group input {
-  border: solid 2px #59356E;
+  border: solid 2px #283618;
 }
 
 #plus-menu {
-  color: #00203D;
-  background-color: #DAC8E4;
+  color: #283618;
+  background-color: #FAEDCD;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
   padding: 2px 12px;
@@ -226,11 +271,11 @@ nav > a {
 #comments > #new-comment {
   font-size: 22px;
   text-decoration: none;
-  color: #00203D;
+  color: #283618;
 }
 
 #comments > #new-comment > div:hover {
-  background-color: #FFAFCC;
+  background-color: #CCD5AE;
 }
 
 #comments .comment-header {
@@ -245,7 +290,7 @@ nav > a {
 }
 
 #comments .comment {
-  background-color: #BDE0FE;
+  background-color: #FAEDCD;
   border-radius: 10px;
   margin: 10px;
   padding: 2%;
@@ -261,7 +306,7 @@ nav > a {
 }
 
 #comments .owner {
-  background-color: #FFC8DD;
+  background-color: #E9EDC9;
 }
 
 #comments .comment img {

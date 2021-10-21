@@ -2,11 +2,13 @@
 
 <h2 class="title">Browse restaurants</h2>
 <section id="rstrnts">
+    <% if (user) { %>
     <a href="/rstrnts/new">
         <div  id="new-rstrnt">
             <p>+ Add a new <br/> restaurant<p/>
         </div>
     </a>
+    <% } %>
     <% rstrnts.forEach(function(r) { %>
         <a href="/rstrnts/<%= r._id %>">
             <div>
