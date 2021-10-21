@@ -12,7 +12,6 @@ body, main, #landing > section, #login-options, #rstrnt-info,
 }
 
 body {
-  /* height: 100vh; */
   margin: 0;
   color: #283618;
   background-color: #FEFDF2;
@@ -144,10 +143,9 @@ nav > a:hover > span {
   background-color: #E9EDC9;
   border-radius: 10px;
   width: 200px;
-  height: 160px;
+  height: 170px;
   text-align: center;
   font-size: 22px;
-  /* overflow: hidden; */
 }
 
 #rstrnts div #short-descrip {
@@ -157,11 +155,6 @@ nav > a:hover > span {
   padding-top: 5px;
   border-top: solid 2px #283618;
 }
-
-/* #rstrnts div span {
-  padding-bottom: 5px;
-  border-bottom: solid 2px #283618;
-} */
 
 #rstrnts #new-rstrnt {
   background-color: #FEFAE0;

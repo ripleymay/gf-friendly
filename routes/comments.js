@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 var commentsCtrl = require('../controllers/comments');
-const isLoggedIn = require('../config/auth');
 
 router.get('/rstrnts/:id/comments/new', commentsCtrl.new);
 router.post('/rstrnts/:id/comments', commentsCtrl.create);

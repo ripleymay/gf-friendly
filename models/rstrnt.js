@@ -43,7 +43,10 @@ const rstrntSchema = new Schema({
         type: String,
         match: /[1-9]\d{2}-\d{3}-\d{4}/
     },
-    description: String,
+    description: {
+        type: String,
+        maxlength: 75
+    },
     creator: Schema.Types.ObjectId,
     comments: [commentSchema],
     menus: [menuSchema]

@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
-<h2 class="title">Add a new GF spot...</h2>
 
+<h2 class="title">Add a new GF spot...</h2>
 <form id="add-rstrnt" action="/rstrnts" method="POST">
     <div class="input-group">
         <div class="input-group-prepend">
@@ -20,7 +20,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">URL</span>
         </div>
-        <input type="text" class="form-control" placeholder="https://www.-" name="link">
+        <input type="text" class="form-control" placeholder="https://..." name="link">
     </div>
     <div class="input-group">
         <div class="input-group-prepend">
@@ -32,7 +32,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Description</span>
         </div>
-        <textarea class="form-control" name="description"></textarea>
+        <textarea class="form-control" name="description" placeholder="Keep it brief!"></textarea>
     </div>
     <input type="submit" class="btn" value="Add Restaurant">
 </form>
