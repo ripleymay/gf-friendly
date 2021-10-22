@@ -30,4 +30,5 @@ Consuming a third party API from somewhere such as [Yelp](https://www.yelp.com/d
 * Node.js
 * Express
 * MongoDB/Mongoose
+* Trello - see planning board [here](https://trello.com/b/ctvUKfX1/gf-friendly-crud-app).
 * Coolors palettes - specifically [this one](https://coolors.co/ccd5ae-e9edc9-fefae0-faedcd-d4a373) and [this one](https://coolors.co/606c38-283618-fefae0-dda15e-bc6c25).
